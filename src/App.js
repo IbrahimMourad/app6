@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-
+import WordCount from './components/WordCount';
+import { useState } from 'react';
 function App() {
+  const [first, setFirst] = useState('1');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <button onClick={() => setFirst((prev) => prev + 1)}>
+        {' '}
+        clicked {first}
+      </button>
+
+      <button onClick={() => setFirst('hello')}>hello {first}</button>
+      <WordCount text={first} />
     </div>
   );
 }
